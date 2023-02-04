@@ -2,20 +2,20 @@
 title: What is SvelteKit?
 ---
 
-SvelteKit is a framework for building extremely high-performance web apps. Whereas Svelte is a _component framework_, SvelteKit is an _app framework_ (or 'metaframework', depending on who you ask) that solves the tricky problems of building something production-ready:
+SvelteKit은 고성능 웹 앱을 구축하기 위한 프레임워크입니다. Svelte는 _컴포넌트 프레임워크_ 인 반면 SvelteKit은 _앱 프레임워크_ (또는 묻는 사람에 따라 '메타프레임워크')로, 프러덕션에 바로 적용된 것을 구축하는 까다로운 문제를 해결합니다.
 
-- Routing
-- Server-side rendering
-- Data fetching
-- Service workers
-- TypeScript integration
-- Prerendering
-- Single-page apps
-- Library packaging
-- Optimised production builds
-- Deploying to different hosting providers
-- ...and so on
+- 라우팅
+- 서버 사이드 렌더링
+- 데이터 가져오기
+- 서비스 워커
+- TypeScript 통합
+- 사전 렌더링
+- 단일 페이지 앱
+- 라이브러리 패키징
+- 최적화된 프로덕션 빌드
+- 다른 호스팅 제공업체에 배포
+- ...등등
 
-SvelteKit apps are server-rendered by default (like traditional 'multi-page apps' or MPAs) for excellent first load performance and SEO characteristics, but can then transition to client-side navigation (like modern 'single-page apps' or SPAs) to avoid jankily reloading everything (including things like third-party analytics code) when the user navigates. They can run anywhere JavaScript runs, though — as we'll see — your users may not need to run any JavaScript at all.
+SvelteKit 앱은 우수한 첫 번째 로드 성능 및 SEO 특성을 위해 기본적으로 서버에서 렌더링되지만(예: 기존의 '다중 페이지 앱' 또는 MPA) 클라이언트 측 탐색(예: 최신 '단일 페이지 앱' 또는 SPA)으로 전환할 수 있습니다. 사용자가 탐색할 때 모든 항목(타사 분석 코드 등 포함)이 버벅거리며 다시 로드되지 않도록 합니다. 자바스크립트가 실행되는 모든 곳에서 실행할 수 있지만 사용자가 자바스크립트를 전혀 실행할 필요가 없을 수도 있습니다.
 
-If that sounds complicated, worry not: SvelteKit is the framework that grows with you! Start simple and add new features as they come. This tutorial will go over the core concepts, while the [Advanced SvelteKit](/tutorial/handle) tutorial teaches you how to tackle more complex use cases.
+복잡하게 들리더라도 걱정하지 마세요. SvelteKit은 사용자와 함께 성장하는 프레임워크입니다! 간단하게 시작하고 새로운 기능이 나오면 추가하십시오. 이 튜토리얼에서는 핵심 개념을 살펴보고 [Advanced SvelteKit](/tutorial/handle) 튜토리얼에서는 더 복잡한 사용 사례를 다루는 방법을 알려줍니다.

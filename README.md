@@ -8,6 +8,11 @@ This repo uses [pnpm](https://pnpm.io/).
 
 ## Running the app
 
+```
+pnpm add -g pnpm
+pnpm build && pnpm dev
+```
+
 First, run `node scripts/create-common-bundle`. This packages up everything that's needed to run a SvelteKit app (Vite, Esbuild, SvelteKit, Svelte compiler etc) which can subsequently be unpacked on a server to create and run and instance of a SvelteKit application (which powers the output window of the tutorial).
 
 The next steps depend on whether you want to run this locally in filesystem mode, or in WebContainer mode. For now, it works with filesystem mode only locally. In future, it will run both locally and on the web (using [WebContainers](https://blog.stackblitz.com/posts/introducing-webcontainers/)).

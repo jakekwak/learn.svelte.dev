@@ -2,9 +2,9 @@
 title: Custom stores
 ---
 
-As long as an object correctly implements the `subscribe` method, it's a store. Beyond that, anything goes. It's very easy, therefore, to create custom stores with domain-specific logic.
+객체가 `subscribe` 메소드를 올바르게 구현하는 한, 그것은 스토어입니다. 그 이상은 무엇이든 됩니다. 따라서 도메인별 논리를 사용하여 사용자 지정(custom) 스토어를 만드는 것은 매우 쉽습니다.
 
-For example, the `count` store from our earlier example could include `increment`, `decrement` and `reset` methods and avoid exposing `set` and `update`:
+예를 들어, 이전 예제의 `count` 스토어에는 `increment`, `decrement` 및 `reset` 메소드가 포함될 수 있으며 `set` 및 `update` 노출을 피할 수 있습니다.
 
 ```js
 function createCount() {

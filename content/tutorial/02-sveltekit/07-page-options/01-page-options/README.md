@@ -2,15 +2,15 @@
 title: Basics
 ---
 
-In the chapter on [loading data](/tutorial/page-data), we saw how you can export `load` functions from `+page.js`, `+page.server.js`, `+layout.js` and `+layout.server.js` files. We can also export various **page options** from these modules:
+[데이터 불러오기](/tutorial/page-data) 장에서 `+page.js`, `+page.server.js`, `+layout.js` 및 `+layout.server.js` 파일에서 `load` 함수를 내보내는 방법을 살펴봤습니다.  다음 모듈에서 다양한 **페이지 옵션**을 내보낼 수도 있습니다.
 
-- `ssr` — whether or not pages should be server-rendered
-- `csr` — whether to load the SvelteKit client
-- `prerender` — whether to prerender pages at build time, instead of per-request
-- `trailingSlash` — whether to strip, add, or ignore trailing slashes in URLs
+- `ssr` — 페이지를 서버 렌더링해야 하는지 여부
+- `csr` — SvelteKit 클라이언트를 로드할지 여부
+- `prerender` — 요청당이 아니라 빌드 시 페이지를 사전 렌더링할지 여부
+- `trailingSlash` — URL에서 후행 슬래시를 제거, 추가 또는 무시할지 여부
 
-In the following exercises, we'll learn about each of these in turn.
+다음 연습에서는 이들 각각에 대해 차례로 알아봅니다.
 
-Page options can apply to individual pages (if exported from `+page.js` or `+page.server.js`), or groups of pages (if exported from `+layout.js` or `+layout.server.js`). To define an option for the whole app, export it from the root layout. Child layouts and pages override values set in parent layouts, so — for example — you can enable prerendering for your entire app then disable it for pages that need to be dynamically rendered.
+페이지 옵션은 개별 페이지(`+page.js` 또는 `+page.server.js`에서 내보낸 경우) 또는 페이지 그룹(`+layout.js` 또는 `+layout.server.js에서 내보낸 경우)에 적용할 수 있습니다. `). 전체 앱에 대한 옵션을 정의하려면 루트 레이아웃에서 내보냅니다. 하위 레이아웃 및 페이지는 상위 레이아웃에 설정된 값을 재정의하므로 예를 들어 전체 앱에 대해 사전 렌더링을 활성화한 다음 동적으로 렌더링해야 하는 페이지에 대해 비활성화할 수 있습니다.
 
-You can mix and match these options in different areas of your app — you could prerender your marketing pages, dynamically server-render your data-driven pages, and treat your admin pages as a client-rendered SPA. This makes SvelteKit very versatile.
+앱의 다양한 영역에서 이러한 옵션을 혼합하고 일치시킬 수 있습니다. 마케팅 페이지를 사전 렌더링하고, 데이터 기반 페이지를 동적으로 서버 렌더링하고, 관리 페이지를 클라이언트 렌더링 SPA로 처리할 수 있습니다. 이것은 SvelteKit을 매우 다재다능하게 만듭니다.

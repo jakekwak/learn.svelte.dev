@@ -2,7 +2,7 @@
 title: Slot fallbacks
 ---
 
-A component can specify _fallbacks_ for any slots that are left empty, by putting content inside the `<slot>` element:
+구성 요소는 `<slot>` 요소 내부에 콘텐츠를 넣어 비어 있는 모든 슬롯에 대해 _fallbacks_ 를 지정할 수 있습니다.
 
 ```svelte
 <div class="box">
@@ -12,7 +12,7 @@ A component can specify _fallbacks_ for any slots that are left empty, by puttin
 </div>
 ```
 
-We can now create instances of `<Box>` without any children:
+이제 자식 없이 `<Box>`의 인스턴스를 만들 수 있습니다.
 
 ```svelte
 <Box>

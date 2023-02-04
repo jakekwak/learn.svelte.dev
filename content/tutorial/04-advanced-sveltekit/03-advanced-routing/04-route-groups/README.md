@@ -2,13 +2,13 @@
 title: Route groups
 ---
 
-As we saw in the [routing introduction](/tutorial/layouts), layouts are a way to share UI and data loading logic between different routes.
+[라우팅 소개](/tutorial/layouts)에서 본 것처럼 레이아웃은 서로 다른 라우트 간에 UI와 데이터 로딩 로직을 공유하는 방법입니다.
 
-Sometimes it's useful to use layouts without affecting the route — for example, you might need your `/app` and `/account` routes to be behind authentication, while your `/about` page is open to the world. We can do this with a _route group_, which is a directory in parentheses.
+경우에 따라 경로에 영향을 주지 않고 레이아웃을 사용하는 것이 유용할 수 있습니다. 예를 들어 `/about` 페이지가 전 세계에 열려 있는 동안 `/app` 및 `/account` 경로가 인증 뒤에 있어야 할 수 있습니다. 괄호 안의 디렉토리인 _route group_으로 이 작업을 수행할 수 있습니다.
 
-Create an `(authed)` group by renaming `account` to `(authed)/account` then renaming `app` to `(authed)/app`.
+`account`의 이름을 `(authed)/account`로 변경한 다음 `app`의 이름을 `(authed)/app`으로 변경하여 `(authed)` 그룹을 만듭니다.
 
-Now we can control access to these routes by creating `src/routes/(authed)/+layout.server.js`:
+이제 `src/routes/(authed)/+layout.server.js`를 생성하여 이러한 경로에 대한 액세스를 제어할 수 있습니다.
 
 ```js
 /// file: src/routes/(authed)/+layout.server.js
@@ -21,9 +21,9 @@ export function load({ cookies, url }) {
 }
 ```
 
-If you try to visit these pages, you'll be redirected to the `/login` route, which has a form action in `src/routes/login/+page.server.js` that sets the `logged_in` cookie.
+이 페이지를 방문하려고 하면 `logged_in` 쿠키를 설정하는 `src/routes/login/+page.server.js`에 양식 작업이 있는 `/login` 경로로 리디렉션됩니다.
 
-We can also add some UI to these two routes by adding a `src/routes/(authed)/+layout.svelte` file:
+`src/routes/(authed)/+layout.svelte` 파일을 추가하여 이 두 경로에 일부 UI를 추가할 수도 있습니다.
 
 ```svelte
 /// file: src/routes/(authed)/+layout.svelte

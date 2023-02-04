@@ -5,18 +5,18 @@ title: Universal load functions
 > Coming soon
 
 <!--
-In the previous two exercises we loaded data from the server using `+page.server.js` and `+layout.server.js` files. This is very convenient if you need to do things like getting data directly from a database, or reading cookies.
+이전 두 연습에서는 `+page.server.js` 및 `+layout.server.js` 파일을 사용하여 서버에서 데이터를 로드했습니다. 이는 데이터베이스에서 직접 데이터를 가져오거나 쿠키를 읽는 것과 같은 작업을 수행해야 하는 경우 매우 편리합니다.
 
-Sometimes it doesn't make sense to load data from the server when doing a client-side navigation. For example:
+때때로 클라이언트 측 탐색을 수행할 때 서버에서 데이터를 로드하는 것이 이치에 맞지 않습니다. 예를 들어:
 
-- You're loading data from an external API
-- You want to use in-memory data if it's available
-- You want to delay navigation until an image has been preloaded, to avoid pop-in
-- You need to return something from `load` that can't be serialized (SvelteKit uses [devalue](https://github.com/Rich-Harris/devalue) to turn server data into JSON), such as a component or a store
+- 외부 API에서 데이터를 로드하고 있습니다.
+- 사용 가능한 경우 메모리 내 데이터를 사용하려는 경우
+- 팝인을 피하기 위해 이미지가 미리 로드될 때까지 탐색을 지연시키려는 경우
+- 컴포넌트 또는 스토어와 같이 직렬화할 (SvelteKit은 [devalue](https://github.com/Rich-Harris/devalue)를 사용하여 서버 데이터를 JSON으로 변환합니다.) 수 없는 `로드`에서 무언가를 반환해야 합니다.
 
-In this example, we're loading data from an external API in `src/routes/+page.server.js` and `src/routes/item/[id]/+page.server.js`. That means that every time we navigate from one page to another, we're making a request to our server, which in turn makes a request to the API. That's an unnecessary detour that slows requests down and increases load on our server.
+이 예에서는 `src/routes/+page.server.js` 및 `src/routes/item/[id]/+page.server.js`의 외부 API에서 데이터를 로드하고 있습니다. 즉, 한 페이지에서 다른 페이지로 이동할 때마다 서버에 요청을 하고 서버에서 API에 요청을 합니다. 이는 요청 속도를 늦추고 서버의 부하를 증가시키는 불필요한 우회입니다.
 
-Let's cut out the middleman: rename both `+page.server.js` files to `+page.js`.
+중개자를 잘라내자: 두 `+page.server.js` 파일의 이름을 모두 `+page.js`로 바꾸십시오.
 
-Now, the `load` functions will run on the server during server-side rendering, but will run in the browser for subsequent client-side navigations. The trade-off is that we no longer have access to things that need a server (databases, cookies, private environment variables and so on), but in this case we don't need those things. Read the [documentation](https://kit.svelte.dev/docs/load#shared-vs-server) to learn more about the distinction between server `load` functions and universal `load` functions.
+이제 '로드' 기능은 서버 측 렌더링 중에 서버에서 실행되지만 후속 클라이언트 측 탐색을 위해 브라우저에서 실행됩니다. 대신 서버가 필요한 것(데이터베이스, 쿠키, 개인 환경 변수 등)에 더 이상 액세스할 수 없지만 이 경우에는 필요하지 않습니다. [문서](https://kit.svelte.dev/docs/load#shared-vs-server)를 읽고 서버 `로드` 기능과 범용 `로드` 기능 간의 차이점에 대해 자세히 알아보세요.
 -->

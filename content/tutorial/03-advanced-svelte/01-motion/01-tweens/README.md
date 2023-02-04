@@ -1,42 +1,25 @@
 ---
-title: Tweens
+title: trailingSlash
 ---
 
-Now that we've covered the basics of SvelteKit, it's time to learn some advanced Svelte techniques, starting with _motion_.
+`/foo` 및 `/foo/`와 같은 두 개의 URL은 동일하게 보일 수 있지만 실제로는 다릅니다. `bar`와 같은 상대 URL은 첫 번째 경우에는 `/bar`로, 두 번째 경우에는 `/foo/bar`로 해석되며 검색 엔진은 이를 별도의 항목으로 취급하여 SEO에 해를 끼칩니다.
 
-Setting values and watching the DOM update automatically is cool. Know what's even cooler? Tweening those values. Svelte includes tools to help you build slick user interfaces that use animation to communicate changes.
+요컨대, 후행 슬래시를 느슨하게 다루는 것은 나쁜 생각입니다. 기본적으로 SvelteKit은 후행 슬래시를 제거합니다. 즉, `/foo/`에 대한 요청은 `/foo`로 리디렉션됩니다.
 
-Let's start by changing the `progress` store to a `tweened` value:
+대신 후행 슬래시가 항상 있는지 확인하려면 그에 따라 `trailingSlash` 옵션을 지정할 수 있습니다.
 
-```svelte
-<script>
-	import { +++tweened+++ } from 'svelte/+++motion+++';
-
-	const progress = +++tweened+++(0);
-</script>
+```js
+/// file: src/routes/always/+page.server.js
+export const trailingSlash = 'always';
 ```
 
-Clicking the buttons causes the progress bar to animate to its new value. It's a bit robotic and unsatisfying though. We need to add an easing function:
+두 가지 경우를 모두 수용하려면(권장하지 않음!) `'ignore'`를 사용하십시오.
 
-```svelte
-<script>
-	import { tweened } from 'svelte/motion';
-	+++import { cubicOut } from 'svelte/easing';+++
-
-	const progress = tweened(0, +++{
-		duration: 400,
-		easing: cubicOut
-	}+++);
-</script>
+```js
+/// file: src/routes/ignore/+page.server.js
+export const trailingSlash = 'ignore';
 ```
 
-> The `svelte/easing` module contains the [Penner easing equations](https://web.archive.org/web/20190805215728/http://robertpenner.com/easing/), or you can supply your own `p => t` function where `p` and `t` are both values between 0 and 1.
+기본값은 `'never'`입니다.
 
-The full set of options available to `tweened`:
-
-- `delay` — milliseconds before the tween starts
-- `duration` — either the duration of the tween in milliseconds, or a `(from, to) => milliseconds` function allowing you to (e.g.) specify longer tweens for larger changes in value
-- `easing` — a `p => t` function
-- `interpolate` — a custom `(from, to) => t => value` function for interpolating between arbitrary values. By default, Svelte will interpolate between numbers, dates, and identically-shaped arrays and objects (as long as they only contain numbers and dates or other valid arrays and objects). If you want to interpolate (for example) colour strings or transformation matrices, supply a custom interpolator
-
-You can also pass these options to `progress.set` and `progress.update` as a second argument, in which case they will override the defaults. The `set` and `update` methods both return a promise that resolves when the tween completes.
+후행 슬래시 적용 여부는 사전 렌더링에 영향을 미칩니다. `/always/`와 같은 URL은 `always/index.html`로 디스크에 저장되는 반면 `/never`와 같은 URL은 `never.html`로 저장됩니다.

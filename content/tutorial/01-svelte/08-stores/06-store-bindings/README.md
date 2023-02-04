@@ -2,17 +2,17 @@
 title: Store bindings
 ---
 
-If a store is writable — i.e. it has a `set` method — you can bind to its value, just as you can bind to local component state.
+스토어가 쓰기 가능 (writable)한 경우 (즉, `set` 메서드가 있는 경우) 로컬 컴포넌트 상태에 바인딩할 수 있는 것처럼 해당 값에 바인딩할 수 있습니다.
 
-In this example we have a writable store `name` and a derived store `greeting`. Update the `<input>` element:
+이 예에서는 쓰기 가능한 상점 `name`과 파생된 상점 `greeting`이 있습니다. `<input>` 요소를 업데이트합니다.
 
 ```svelte
 <input bind:value={$name}>
 ```
 
-Changing the input value will now update `name` and all its dependents.
+입력 값을 변경하면 이제 `name` 및 모든 종속 항목이 업데이트됩니다.
 
-We can also assign directly to store values inside a component. Add a `<button>` element:
+컴포넌트 내부에 값을 저장하도록 직접 할당할 수도 있습니다. `<button>` 요소를 추가합니다.
 
 ```svelte
 <button on:click={() => $name += '!'}>
@@ -20,4 +20,4 @@ We can also assign directly to store values inside a component. Add a `<button>`
 </button>
 ```
 
-The `$name += '!'` assignment is equivalent to `name.set($name + '!')`.
+`$name += '!'` 은 `name.set($name + '!')`과 동일합니다.

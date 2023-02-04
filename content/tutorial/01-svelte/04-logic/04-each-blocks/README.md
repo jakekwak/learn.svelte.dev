@@ -2,7 +2,7 @@
 title: Each blocks
 ---
 
-If you need to loop over lists of data, use an `each` block:
+데이터 목록을 반복해야 하는 경우 `each` 블록을 사용하세요.
 
 ```svelte
 <ul>
@@ -14,9 +14,9 @@ If you need to loop over lists of data, use an `each` block:
 </ul>
 ```
 
-> The expression (`cats`, in this case) can be any array or array-like object (i.e. it has a `length` property). You can loop over generic iterables with `each [...iterable]`.
+> 표현식 (이 경우 `cats`)은 배열 또는 배열과 유사한 객체 (즉 `length` 속성이 있음)가 될 수 있습니다. `each [...iterable]`을 사용하여 일반 이터러블을 반복할 수 있습니다.
 
-You can get the current _index_ as a second argument, like so:
+다음과 같이 현재 _색인_ 을 두 번째 인수로 가져올 수 있습니다.
 
 ```svelte
 {#each cats as cat, i}
@@ -26,4 +26,4 @@ You can get the current _index_ as a second argument, like so:
 {/each}
 ```
 
-If you prefer, you can use destructuring — `each cats as { id, name }` — and replace `cat.id` and `cat.name` with `id` and `name`.
+원하는 경우, 분해(`each cats as { id, name }`)해서 사용하고 `cat.id` 및 `cat.name`을 `id` 및 `name`으로 바꿀 수 있습니다.

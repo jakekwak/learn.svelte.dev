@@ -2,12 +2,12 @@
 title: Server and client
 ---
 
-A SvelteKit app can be thought of as two distinct entities working in tandem — the _server_ and the _client_.
+SvelteKit 앱은 _server_와 _client_라는 두 개의 서로 다른 엔터티가 나란히 작동하는 것으로 생각할 수 있습니다.
 
-'Server' is, perhaps, a confusing word since your app will often be running in a _serverless_ environment (cloud/edge functions) or might even be deployed as a set of completely static files. But it's the best we've got. The server's basic job is to turn a request into a response.
+앱이 종종 _서버리스_ 환경(클라우드/엣지 기능)에서 실행되거나 완전히 정적 파일 집합으로 배포될 수도 있기 때문에 '서버'는 혼란스러운 단어일 수 있습니다. 그러나 그것은 우리가 가진 최고입니다. 서버의 기본 작업은 요청을 응답으로 바꾸는 것입니다.
 
-'Client' refers to the JavaScript that loads in the browser.
+'클라이언트'는 브라우저에 로드되는 자바스크립트를 의미합니다.
 
-SvelteKit makes the two communicate with each other seamlessly. On the initial page load, the server renders the HTML, meaning content is visible as quickly as possible. The client then takes over in a process called 'hydration', so that subsequent navigations happen without full page reloads. It will request additional code and data from the server as needed.
+SvelteKit은 두 장치가 서로 원활하게 통신하도록 합니다. 초기 페이지 로드 시 서버는 HTML을 렌더링하므로 콘텐츠가 가능한 한 빨리 표시됩니다. 그런 다음 클라이언트는 전체 페이지를 다시 로드하지 않고 후속 탐색이 발생하도록 '하이드레이션'이라는 프로세스를 대신합니다. 필요에 따라 서버에서 추가 코드와 데이터를 요청합니다.
 
-> You can [adjust this behavior](https://kit.svelte.dev/docs/page-options) as needed. SvelteKit is very versatile!
+> 필요에 따라 [이 동작을 조정](https://kit.svelte.dev/docs/page-options)할 수 있습니다. SvelteKit은 매우 다양합니다!

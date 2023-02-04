@@ -2,29 +2,29 @@
 title: <svelte:options>
 ---
 
-The `<svelte:options>` element allows you to specify compiler options.
+`<svelte:options>` 요소를 사용하면 컴파일러 옵션을 지정할 수 있습니다.
 
-We'll use the `immutable` option as an example. In this app, the `<Todo>` component flashes whenever it receives new data. Clicking on one of the items toggles its `done` state by creating an updated `todos` array. This causes the _other_ `<Todo>` items to flash, even though they don't end up making any changes to the DOM.
+`immutable` 옵션을 예로 사용하겠습니다. 이 앱에서 `<Todo>` 구성요소는 새 데이터를 수신할 때마다 깜박입니다. 항목 중 하나를 클릭하면 업데이트된 `todos` 배열을 생성하여 `done` 상태를 토글합니다. 이로 인해 DOM을 변경하지 않더라도 _other_ `<Todo>` 항목이 깜박입니다.
 
-We can optimise this by telling the `<Todo>` component to expect _immutable_ data. This means that we're promising never to _mutate_ the `todo` prop, but will instead create new todo objects whenever things change.
+우리는 `<Todo>` 구성 요소에 _immutable_ 데이터를 예상하도록 지시하여 이를 최적화할 수 있습니다. 이것은 우리가 `todo` 소품을 _변형_하지 않을 것을 약속하지만 상황이 바뀔 때마다 대신 새로운 todo 객체를 생성할 것임을 의미합니다.
 
-Add this to the top of the `Todo.svelte` file:
+이것을 `Todo.svelte` 파일의 맨 위에 추가하십시오:
 
 ```svelte
 <svelte:options immutable={true}/>
 ```
 
-> You can shorten this to `<svelte:options immutable/>` if you prefer.
+> 원하는 경우 `<svelte:options immutable/>`로 줄일 수 있습니다.
 
-Now, when you toggle todos by clicking on them, only the updated component flashes.
+이제 할 일을 클릭하여 토글하면 업데이트된 구성 요소만 깜박입니다.
 
-The options that can be set here are:
+여기에서 설정할 수 있는 옵션은 다음과 같습니다.
 
-- `immutable={true}` — you never use mutable data, so the compiler can do simple referential equality checks to determine if values have changed
-- `immutable={false}` — the default. Svelte will be more conservative about whether or not mutable objects have changed
-- `accessors={true}` — adds getters and setters for the component's props
-- `accessors={false}` — the default
-- `namespace="..."` — the namespace where this component will be used, most commonly `"svg"`
-- `tag="..."` — the name to use when compiling this component as a custom element
+- `immutable={true}` — 가변 데이터를 사용하지 않으므로 컴파일러는 값이 변경되었는지 확인하기 위해 간단한 참조 동등성 검사를 수행할 수 있습니다.
+- `immutable={false}` — 기본값입니다. Svelte는 변경 가능한 객체가 변경되었는지 여부에 대해 더 보수적입니다.
+- `accessors={true}` — 구성 요소의 소품에 대한 getter 및 setter를 추가합니다.
+- `accessors={false}` — 기본값
+- `namespace="..."` — 이 구성 요소가 사용되는 네임스페이스, 가장 일반적으로 `"svg"`
+- `tag="..."` — 이 구성 요소를 사용자 정의 요소로 컴파일할 때 사용할 이름
 
-Consult the [API reference](https://svelte.dev/docs) for more information on these options.
+이러한 옵션에 대한 자세한 내용은 [API 참조](https://svelte.dev/docs)를 참조하세요.

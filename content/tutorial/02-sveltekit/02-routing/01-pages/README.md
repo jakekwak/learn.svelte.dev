@@ -2,13 +2,13 @@
 title: Pages
 ---
 
-SvelteKit uses filesystem-based routing, which means that the _routes_ of your app — in other words, what the app should do when a user navigates to a particular URL — are defined by the directories in your codebase.
+SvelteKit은 파일 시스템 기반 라우팅을 사용합니다. 즉, 앱의 _라우트_, 즉 사용자가 특정 URL로 이동할 때 앱이 수행해야 하는 작업은 코드베이스의 디렉터리에 의해 정의됩니다.
 
-The routes are located within `src/routes`. Every directory within which contains a `+page.svelte` file creates a route in your app.
+라우트는 `src/routes` 내에 있습니다. `+page.svelte` 파일이 포함된 모든 디렉토리는 앱에서 라우트를 생성합니다.
 
-In this app we currently have one route — `src/routes/+page.svelte`, which maps to `/`.
+이 앱에는 현재 `/`에 매핑되는 `src/routes/+page.svelte`라는 하나의 라우트가 있습니다.
 
-Let's add a second route, `src/routes/about/+page.svelte`, which maps to `/about`:
+`/about`에 매핑되는 두 번째 라우트 `src/routes/about/+page.svelte`를 추가해 보겠습니다.
 
 ```svelte
 /// file: src/routes/about/+page.svelte
@@ -21,6 +21,6 @@ Let's add a second route, `src/routes/about/+page.svelte`, which maps to `/about
 <p>this is the about page.</p>
 ```
 
-We can now navigate between `/` and `/about`.
+이제 `/`와 `/about` 사이를 탐색할 수 있습니다.
 
-> Unlike traditional multi-page apps, navigating to `/about` and back updates the contents of the current page, like a single-page app. This gives us the best of both worlds — fast server-rendered startup, then instant navigation. (This behaviour can be [configured](https://kit.svelte.dev/docs/page-options).)
+> 기존의 다중 페이지 앱과 달리 `/about`으로 이동하고 뒤로 이동하면 단일 페이지 앱처럼 현재 페이지의 콘텐츠가 업데이트됩니다. 이것은 빠른 서버 렌더링 시작과 즉각적인 탐색이라는 두 가지 장점을 모두 제공합니다. (이 동작은 [구성](https://kit.svelte.dev/docs/page-options)할 수 있습니다.)
