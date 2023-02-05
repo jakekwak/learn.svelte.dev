@@ -17,10 +17,7 @@ const viteServerConfig = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({ edge: true }),
-		vite: {
-            		plugins: [viteServerConfig]
-        	}
+		adapter: adapter({ edge: true })
 	},
 
 	vitePlugin: {
@@ -28,7 +25,8 @@ const config = {
 			inspector: {
 				holdMode: true
 			}
-		}
+		},
+		viteServerConfig
 	}
 };
 
