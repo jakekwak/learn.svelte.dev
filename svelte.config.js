@@ -26,7 +26,7 @@ const config = {
 				holdMode: true
 			}
 		},
-		viteServerConfig
+		[viteServerConfig]
 	}
 };
 
